@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chess-commentator"
+version = "0.0.1"
+description = "Project for a bot that can comment chess games from TCEC"
+requires-python = ">=3.11"
+
+dependencies = [
+    # General
+    "click==8.0.4",
+    "APScheduler==3.10.4",
+    "websocket-client==1.7.0",
+    "pydantic==2.6.4",
+    "pydantic-settings==2.1.0",
+    "requests==2.31.0",
+    "chess==1.10.0",
+    "piper-tts==1.2.0",
+    "langchain==0.1.16",
+    "sounddevice==0.4.6",
+    "openai==1.25.0",
+    "langchain-openai==0.1.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+]
+
+[project.scripts]
+chess-commentator = "manage:cli"
+
+[tool.ruff]
+line-length = 120
+ignore = ["E712"]
